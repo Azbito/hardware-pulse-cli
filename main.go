@@ -1,7 +1,7 @@
 package main
 
 import (
-	"cpuTracker/models"
+	"hardware-pulse/models"
 
 	"github.com/gookit/color"
 )

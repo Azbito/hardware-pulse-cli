@@ -1,4 +1,4 @@
-module cpuTracker
+module hardware-pulse
 
 go 1.24.0
 
