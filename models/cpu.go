@@ -17,6 +17,15 @@ var (
 	procGetSystemTimes = modKernel32.NewProc("GetSystemTimes")
 )
 
+func (cpu *CPU) GetUptime() time.Duration {
+	procGetTickCount64 := modKernel32.NewProc("GetTickCount64")
+		ret, _, _ := procGetTickCount64.Call()
+
+		uptimeMs := uint64(ret)
+
+		return time.Duration(uptimeMs) * time.Millisecond
+}
+
 func (cpu *CPU) GetSystemTimes() error {
 
 	var idleTime, kernelTime, userTime syscall.Filetime
